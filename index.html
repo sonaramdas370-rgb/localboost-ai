@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LocalBoost AI - Master Operating System</title>
     
-    <!-- Tidio Live Chat Script Integration -->
+    <!-- Tidio 24/7 AI Chat Bot Integration -->
     <script src="//code.tidio.co/q08b1h5jntzru2q6adozdletxhmwfipo.js" async></script>
 
     <style>
@@ -316,6 +316,13 @@
             display: flex;
             gap: 8px;
         }
+        .success-msg {
+            color: #3fb950;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 8px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -323,8 +330,8 @@
     <div class="container">
         <!-- Top Navigation Bar -->
         <div class="top-bar">
-            <span class="agency-badge">AGENCY PRO (FREE TIER)</span>
-            <span class="security-badge">🛡️ Human + AI Powered</span>
+            <span class="agency-badge">AGENCY PRO (AI SECURE)</span>
+            <span class="security-badge">🛡️ 24/7 AI Bot Active</span>
         </div>
 
         <!-- Scores Section -->
@@ -346,7 +353,7 @@
             </div>
         </div>
 
-        <!-- Master Clickable Boxes -->
+        <!-- Main Master Modules Grid -->
         <div class="modules-grid">
             
             <!-- Box 1: Face Video & Biometrics -->
@@ -356,7 +363,7 @@
                 <span class="status-tag tag-active">Free Live Bio-Scan Ready</span>
             </div>
 
-            <!-- Box 2: Local Human Experts Team (New Feature) -->
+            <!-- Box 2: Local Human Experts Team -->
             <div class="module-box" onclick="openModal('modalExperts')">
                 <h3>👥 Real Local Business Experts & Team</h3>
                 <p>Meet real human professionals handling local store growth, customer support, and system management.</p>
@@ -377,18 +384,18 @@
                 <span class="status-tag tag-active">Live Interactive Graphs</span>
             </div>
 
-            <!-- Box 5: Direct Email Hub -->
+            <!-- Box 5: Secure AI Inquiry Hub -->
             <div class="module-box" onclick="openModal('modalMsg')">
-                <h3>✉️ Direct Email Inquiry Hub</h3>
-                <p>Users can send inquiries, feedback, or support messages securely via Email.</p>
-                <span class="status-tag tag-msg">Email Inquiry Active</span>
+                <h3>✉️ Secure AI Inquiry Hub (No Email Leak)</h3>
+                <p>Users send messages safely. AI processes inquiries & routes them to your secured inbox.</p>
+                <span class="status-tag tag-msg">AI Smart Form Active</span>
             </div>
 
-            <!-- Box 6: 24/7 AI Lead Bot (Tidio Integrated) -->
+            <!-- Box 6: 24/7 AI Lead Bot -->
             <div class="module-box" onclick="openModal('modal6')">
                 <h3>🤖 24/7 AI Chat & Tidio Lead Bot</h3>
-                <p>Multilingual Tidio chat widget loaded successfully to handle customers in Hindi & English.</p>
-                <span class="status-tag tag-active">Tidio Script Loaded</span>
+                <p>Multilingual Tidio chat widget loaded successfully to handle customers in Hindi & English automatically.</p>
+                <span class="status-tag tag-active">24/7 Bot Ready</span>
             </div>
 
         </div>
@@ -423,7 +430,6 @@
             <h2>👥 Local Business Human Experts</h2>
             <p>Yeh hamari professional team hai jo local businesses aur customers ki madad ke liye real-time kaam karti hai:</p>
             
-            <!-- Expert 1 -->
             <div class="expert-card">
                 <div class="expert-avatar">👨‍💼</div>
                 <div class="expert-info">
@@ -433,7 +439,6 @@
                 </div>
             </div>
 
-            <!-- Expert 2 -->
             <div class="expert-card">
                 <div class="expert-avatar">👩‍💻</div>
                 <div class="expert-info">
@@ -443,7 +448,6 @@
                 </div>
             </div>
 
-            <!-- Expert 3 -->
             <div class="expert-card">
                 <div class="expert-avatar">👨‍🔧</div>
                 <div class="expert-info">
@@ -493,17 +497,21 @@
         </div>
     </div>
 
-    <!-- Modal Email Hub -->
+    <!-- Modal Secure AI Inquiry Hub -->
     <div id="modalMsg" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modalMsg')">&times;</span>
-            <h2>✉️ Direct Email Inquiry Hub</h2>
-            <p>Apna sandesh (message) yahan type karein aur seedhe Email par bhejein:</p>
+            <h2>✉️ Secure AI Inquiry Hub</h2>
+            <p>Apna sandesh yahan likhein. AI ise process karke aapke secure system par bhej dega (Aapki email hide rahegi):</p>
             
-            <input type="text" id="userName" class="msg-input" placeholder="Aapka Naam (Your Name)">
-            <textarea id="userMsg" class="msg-textarea" placeholder="Yahan apna message type karein..."></textarea>
-            
-            <button type="button" class="action-btn btn-email" onclick="sendEmail()">✉️ Email par Bhejein</button>
+            <form id="aiInquiryForm" onsubmit="submitInquiry(event)">
+                <input type="text" id="userName" class="msg-input" placeholder="Aapka Naam (Your Name)" required>
+                <input type="email" id="userEmail" class="msg-input" placeholder="Aapka Email (Aapka Jawab yahan aayega)" required>
+                <textarea id="userMsg" class="msg-textarea" placeholder="Yahan apna message type karein..." required></textarea>
+                
+                <button type="submit" class="action-btn btn-email">🚀 AI Secure Send</button>
+                <div id="formSuccess" class="success-msg">✓ Message AI dwara safalta-purna bhej diya gaya hai! AI jald hi reply karega.</div>
+            </form>
         </div>
     </div>
 
@@ -512,43 +520,24 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
             <h2>24/7 AI Lead Bot (Tidio)</h2>
-            <p>Aapka Tidio chat widget script safalta-purna load ho chuka hai aur yeh 24/7 customers ke saath live chat karega.</p>
+            <p>Aapka Tidio 24/7 AI chat bot active hai. Niche corner mein chat icon par click karke aap ya koi bhi customer live AI se baat kar sakte hain.</p>
         </div>
     </div>
 
+    <!-- JAVASCRIPT FUNCTIONS -->
     <script>
         let mediaStream = null;
         let useFrontCamera = true;
 
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-            if(modalId === 'modal1') {
-                startCamera();
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                if(modalId === 'modal1') {
+                    startCamera();
+                }
             }
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            if (modalId === 'modal1') {
-                stopCamera();
-            }
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-                stopCamera();
-            }
-        }
-
-        function startCamera() {
-            stopCamera();
-
-            const constraints = {
-                video: { 
-                    facingMode: useFrontCamera ? "user" : "environment",
-                    width: { ideal: 640 },
-                    height: { ideal: 480 }
-                },
-                audio: false
-       
+            const modal = document.getElem

@@ -125,7 +125,6 @@
             border-radius: 4px;
         }
         .tag-active { background-color: rgba(46, 160, 67, 0.2); color: #3fb950; }
-        .tag-pending { background-color: rgba(187, 128, 9, 0.2); color: #d29922; }
         .tag-msg { background-color: rgba(88, 166, 255, 0.2); color: #58a6ff; }
 
         /* Modal Popups */
@@ -158,24 +157,134 @@
             cursor: pointer;
         }
         .close-btn:hover { color: #f0f6fc; }
-        .modal-content h2 { color: #58a6ff; font-size: 18px; margin-bottom: 12px; }
-        .modal-content p { color: #8b949e; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
+        .modal-content h2 { color: #58a6ff; font-size: 18px; margin-bottom: 8px; }
+        .modal-content p { color: #8b949e; font-size: 13px; line-height: 1.4; margin-bottom: 12px; }
         
+        /* Camera Container */
         .camera-box {
             width: 100%;
-            height: 140px;
+            height: 250px;
             background: #000;
-            border: 1px dashed #58a6ff;
-            border-radius: 8px;
+            border: 2px solid #3fb950;
+            border-radius: 10px;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #58a6ff;
-            font-size: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        #videoFeed {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .face-mask-overlay {
+            position: absolute;
+            width: 120px;
+            height: 160px;
+            border: 2px dashed #3fb950;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(63, 185, 80, 0.4);
+            animation: pulseScan 2s infinite alternate;
+        }
+        @keyframes pulseScan {
+            0% { border-color: #3fb950; box-shadow: 0 0 10px rgba(63, 185, 80, 0.3); }
+            100% { border-color: #58a6ff; box-shadow: 0 0 20px rgba(88, 166, 255, 0.6); }
+        }
+        .free-cam-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #3fb950;
+            border: 1px solid #3fb950;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 4px;
+            z-index: 10;
         }
 
-        /* Messaging Form Elements inside Modal */
+        /* Human Experts Team Cards Styling */
+        .expert-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .expert-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #21262d;
+            border: 2px solid #58a6ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .expert-info h4 {
+            color: #f0f6fc;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        .expert-info p {
+            color: #8b949e;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        .expert-role {
+            display: inline-block;
+            font-size: 10px;
+            color: #3fb950;
+            background: rgba(46, 160, 67, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 3px;
+        }
+
+        /* Graph UI Styling */
+        .analytics-graph-container {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .graph-bars {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 140px;
+            padding-top: 10px;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 10px;
+        }
+        .bar-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        .bar {
+            width: 22px;
+            background: linear-gradient(180deg, #58a6ff, #1f6feb);
+            border-radius: 4px 4px 0 0;
+        }
+        .bar-label {
+            font-size: 10px;
+            color: #8b949e;
+            margin-top: 6px;
+        }
+
+        /* Messaging Form Elements */
         .msg-input, .msg-textarea {
             width: 100%;
             background-color: #0d1117;
@@ -190,28 +299,23 @@
             height: 80px;
             resize: none;
         }
-        .btn-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
         .action-btn {
-            flex: 1;
-            padding: 10px;
+            width: 100%;
+            padding: 11px;
             border: none;
             border-radius: 8px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
             cursor: pointer;
             text-align: center;
-            text-decoration: none;
         }
-        .btn-whatsapp { background-color: #238636; color: #fff; }
-        .btn-whatsapp:hover { background-color: #2ea043; }
         .btn-email { background-color: #1f6feb; color: #fff; }
-        .btn-email:hover { background-color: #388bfd; }
-        .btn-messenger { background-color: #8957e5; color: #fff; }
-        .btn-messenger:hover { background-color: #a371f7; }
+        .btn-cam { background-color: #238636; color: #fff; flex: 1; }
+        .btn-switch { background-color: #1f6feb; color: #fff; flex: 1; }
+        .cam-controls {
+            display: flex;
+            gap: 8px;
+        }
     </style>
 </head>
 <body>
@@ -219,8 +323,8 @@
     <div class="container">
         <!-- Top Navigation Bar -->
         <div class="top-bar">
-            <span class="agency-badge">AGENCY PRO</span>
-            <span class="security-badge">🛡️ 2FA / Passkey Active</span>
+            <span class="agency-badge">AGENCY PRO (FREE TIER)</span>
+            <span class="security-badge">🛡️ Human + AI Powered</span>
         </div>
 
         <!-- Scores Section -->
@@ -248,15 +352,15 @@
             <!-- Box 1: Face Video & Biometrics -->
             <div class="module-box" onclick="openModal('modal1')">
                 <h3>📹 Face Video & Biometric Security</h3>
-                <p>AI-powered live facial recognition, video identity verification & hardware passkeys.</p>
-                <span class="status-tag tag-active">Live Bio-Scan Ready</span>
+                <p>AI-powered live facial recognition, front/rear camera switch & free version check.</p>
+                <span class="status-tag tag-active">Free Live Bio-Scan Ready</span>
             </div>
 
-            <!-- Box 2: Security Code (OTP) & Recovery -->
-            <div class="module-box" onclick="openModal('modal2')">
-                <h3>🔑 Security Code (OTP) & Recovery</h3>
-                <p>Automated backup codes and instant OTP verification if password is forgotten.</p>
-                <span class="status-tag tag-active">Secured System</span>
+            <!-- Box 2: Local Human Experts Team (New Feature) -->
+            <div class="module-box" onclick="openModal('modalExperts')">
+                <h3>👥 Real Local Business Experts & Team</h3>
+                <p>Meet real human professionals handling local store growth, customer support, and system management.</p>
+                <span class="status-tag tag-active">Human Team Active</span>
             </div>
 
             <!-- Box 3: Captcha & Bot Guard -->
@@ -267,17 +371,17 @@
             </div>
 
             <!-- Box 4: Live Data Analytics & Graphs -->
-            <div class="module-box" onclick="openModal('modal4')">
-                <h3>📊 Live Business Analytics & Graphs</h3>
-                <p>Real-time traffic analysis, customer engagement charts, and growth insights.</p>
-                <span class="status-tag tag-active">Live Track</span>
+            <div class="module-box" onclick="openModal('modalAnalytics')">
+                <h3>📊 Live Business Analytics & Real Graphs</h3>
+                <p>Real-time traffic analysis, customer engagement growth charts, and interactive data insights.</p>
+                <span class="status-tag tag-active">Live Interactive Graphs</span>
             </div>
 
-            <!-- Box 5: Direct Messaging & Lead Center (New WhatsApp/Email/Messenger Box) -->
+            <!-- Box 5: Direct Email Hub -->
             <div class="module-box" onclick="openModal('modalMsg')">
-                <h3>💬 Direct Message Hub (WhatsApp & Email)</h3>
-                <p>Users can send direct inquiries, feedback, or support messages instantly via WhatsApp, Email & Messenger.</p>
-                <span class="status-tag tag-msg">Send Message Active</span>
+                <h3>✉️ Direct Email Inquiry Hub</h3>
+                <p>Users can send inquiries, feedback, or support messages securely via Email.</p>
+                <span class="status-tag tag-msg">Email Inquiry Active</span>
             </div>
 
             <!-- Box 6: 24/7 AI Lead Bot (Tidio Integrated) -->
@@ -290,24 +394,66 @@
         </div>
     </div>
 
-    <!-- Modals (Popup Windows) -->
+    <!-- Modals -->
     
     <!-- Modal 1: Face Video -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-            <h2>Face Video & Biometric Verification</h2>
-            <p>Login ya account recovery ke waqt user ka live face video scan hoga. AI match hone par hi dashboard ka access milega.</p>
-            <div class="camera-box">📷 [ Live AI Face Scan Camera Active ]</div>
+            <h2>Face Biometric Verification (Free Version)</h2>
+            <p>Apna chehra oval mask ke andar set karein. Aap Front ya Rear camera badal sakte hain:</p>
+            
+            <div class="camera-box">
+                <div class="free-cam-badge">🟢 FREE VERSION ACTIVE</div>
+                <video id="videoFeed" autoplay playsinline muted></video>
+                <div class="face-mask-overlay"></div>
+            </div>
+
+            <div class="cam-controls">
+                <button type="button" class="action-btn btn-cam" onclick="startCamera()">📷 Start Camera</button>
+                <button type="button" class="action-btn btn-switch" onclick="switchCamera()">🔄 Switch Cam</button>
+            </div>
         </div>
     </div>
 
-    <!-- Modal 2: OTP -->
-    <div id="modal2" class="modal">
+    <!-- Modal 2: Local Human Experts Team -->
+    <div id="modalExperts" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-            <h2>Security Code (OTP) & Backup</h2>
-            <p>Password bhoolne par registered mobile/email par secure Security Code (OTP) bheja jayega, jisse turant recovery ho sake.</p>
+            <span class="close-btn" onclick="closeModal('modalExperts')">&times;</span>
+            <h2>👥 Local Business Human Experts</h2>
+            <p>Yeh hamari professional team hai jo local businesses aur customers ki madad ke liye real-time kaam karti hai:</p>
+            
+            <!-- Expert 1 -->
+            <div class="expert-card">
+                <div class="expert-avatar">👨‍💼</div>
+                <div class="expert-info">
+                    <h4>Rahul Sharma</h4>
+                    <p>Local Store & Vendor Growth Manager</p>
+                    <span class="expert-role">Active • On-Site Support</span>
+                </div>
+            </div>
+
+            <!-- Expert 2 -->
+            <div class="expert-card">
+                <div class="expert-avatar">👩‍💻</div>
+                <div class="expert-info">
+                    <h4>Priya Verma</h4>
+                    <p>Digital SEO & Analytics Specialist</p>
+                    <span class="expert-role">Active • Data Analysis</span>
+                </div>
+            </div>
+
+            <!-- Expert 3 -->
+            <div class="expert-card">
+                <div class="expert-avatar">👨‍🔧</div>
+                <div class="expert-info">
+                    <h4>Amit Kumar</h4>
+                    <p>Technical & System Security Lead</p>
+                    <span class="expert-role">Active • 24/7 Security</span>
+                </div>
+            </div>
+            
+            <p style="font-size: 11px; color: #3fb950; text-align: center; margin-top: 10px;">✓ All team members are verified for free business operations.</p>
         </div>
     </div>
 
@@ -316,34 +462,48 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
             <h2>Captcha & Bot Guard</h2>
-            <p>Har login aur recovery attempt par automated bots ko block karne ke liye smart Captcha verification active hai.</p>
+            <p>Har login aur recovery attempt par automated bots ko block karne ke liye smart Captcha active hai.</p>
         </div>
     </div>
 
-    <!-- Modal 4: Analytics -->
-    <div id="modal4" class="modal">
+    <!-- Modal Analytics -->
+    <div id="modalAnalytics" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
-            <h2>Live Business Analytics</h2>
-            <p>Yahan aapke business ke saare real-time graphs, visitor trends aur performance statistics dikhayi denge.</p>
+            <span class="close-btn" onclick="closeModal('modalAnalytics')">&times;</span>
+            <h2>📊 Live Traffic & Growth Analytics</h2>
+            <p>Hafte bhar ke visitor engagement aur revenue growth ka live visual data:</p>
+            
+            <div class="analytics-graph-container">
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: #8b949e; margin-bottom: 5px;">
+                    <span>Weekly Traffic Peak</span>
+                    <span style="color: #3fb950; font-weight: bold;">+28.4% Growth</span>
+                </div>
+                <div class="graph-bars">
+                    <div class="bar-col"><div class="bar" style="height: 40px;"></div><span class="bar-label">Mon</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 70px;"></div><span class="bar-label">Tue</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 55px;"></div><span class="bar-label">Wed</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 95px;"></div><span class="bar-label">Thu</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 80px;"></div><span class="bar-label">Fri</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 120px; background: linear-gradient(180deg, #3fb950, #238636);"></div><span class="bar-label">Sat</span></div>
+                    <div class="bar-col"><div class="bar" style="height: 110px; background: linear-gradient(180deg, #3fb950, #238636);"></div><span class="bar-label">Sun</span></div>
+                </div>
+            </div>
+            
+            <p style="font-size: 11px; color: #8b949e; text-align: center;">System Status: Fully Optimized & Secure (Free Tier)</p>
         </div>
     </div>
 
-    <!-- Modal Messaging Hub (WhatsApp, Email & Messenger) -->
+    <!-- Modal Email Hub -->
     <div id="modalMsg" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modalMsg')">&times;</span>
-            <h2>💬 Direct User Messaging Hub</h2>
-            <p>Apna sandesh (message) yahan type karein aur seedhe WhatsApp, Email ya Messenger par bhejein:</p>
+            <h2>✉️ Direct Email Inquiry Hub</h2>
+            <p>Apna sandesh (message) yahan type karein aur seedhe Email par bhejein:</p>
             
             <input type="text" id="userName" class="msg-input" placeholder="Aapka Naam (Your Name)">
             <textarea id="userMsg" class="msg-textarea" placeholder="Yahan apna message type karein..."></textarea>
             
-            <div class="btn-group">
-                <button type="button" class="action-btn btn-whatsapp" onclick="sendWhatsApp()">📱 WhatsApp par Bhejein</button>
-                <button type="button" class="action-btn btn-email" onclick="sendEmail()">✉️ Email par Bhejein</button>
-                <button type="button" class="action-btn btn-messenger" onclick="sendMessenger()">💬 Messenger par Bhejein</button>
-            </div>
+            <button type="button" class="action-btn btn-email" onclick="sendEmail()">✉️ Email par Bhejein</button>
         </div>
     </div>
 
@@ -352,48 +512,43 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
             <h2>24/7 AI Lead Bot (Tidio)</h2>
-            <p>Aapka Tidio chat widget script (`q08b1h5jntzru2q6adozdletxhmwfipo.js`) safalta-purna load ho chuka hai aur yeh 24/7 customers ke saath live chat karega.</p>
+            <p>Aapka Tidio chat widget script safalta-purna load ho chuka hai aur yeh 24/7 customers ke saath live chat karega.</p>
         </div>
     </div>
 
     <script>
+        let mediaStream = null;
+        let useFrontCamera = true;
+
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
+            if(modalId === 'modal1') {
+                startCamera();
             }
         }
 
-        // Direct Messaging Functions
-        function sendWhatsApp() {
-            let name = document.getElementById('userName').value || 'User';
-            let msg = document.getElementById('userMsg').value || 'Hello LocalBoost AI';
-            let encodedText = encodeURIComponent(`Naam: ${name}\nMessage: ${msg}`);
-            // Yahan apna WhatsApp number daal sakte hain (jaise 919876543210)
-            let phone = "910000000000"; 
-            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedText}`, '_blank');
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            if (modalId === 'modal1') {
+                stopCamera();
+            }
         }
 
-        function sendEmail() {
-            let name = document.getElementById('userName').value || 'User';
-            let msg = document.getElementById('userMsg').value || 'Hello LocalBoost AI';
-            let subject = encodeURIComponent(`Message from LocalBoost AI User: ${name}`);
-            let body = encodeURIComponent(`Name: ${name}\n\nMessage:\n${msg}`);
-            // Yahan apni email id daal sakte hain
-            let emailID = "yourbusiness@gmail.com";
-            window.open(`mailto:${emailID}?subject=${subject}&body=${body}`, '_blank');
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                stopCamera();
+            }
         }
 
-        function sendMessenger() {
-            let msg = document.getElementById('userMsg').value || 'Hello';
-            // Facebook Messenger link redirection
-            window.open(`https://m.me/yourfacebookpage`, '_blank');
-        }
-    </script>
-</body>
-        </html>
+        function startCamera() {
+            stopCamera();
+
+            const constraints = {
+                video: { 
+                    facingMode: useFrontCamera ? "user" : "environment",
+                    width: { ideal: 640 },
+                    height: { ideal: 480 }
+                },
+                audio: false
+       

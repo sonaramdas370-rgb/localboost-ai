@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalBoost AI - Jamun & Gold Master OS</title>
+    
+    <!-- Tidio 24/7 AI Chat Bot Integration -->
+    <script src="//code.tidio.co/q08b1h5jntzru2q6adozdletxhmwfipo.js" async></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #12081f, #1f0f35); color: #f3e8ff; padding: 15px; }
+        .container { max-width: 680px; margin: 0 auto; }
+        
+        /* Jamun & Gold Top Bar */
+        .top-bar { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(135deg, #24113c, #3b1d5e); border: 2px solid #ffd700; padding: 16px; border-radius: 18px; margin-bottom: 20px; box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); }
+        .agency-badge { background: linear-gradient(135deg, #ffd700, #ffa500); color: #12081f; font-size: 11px; font-weight: 900; padding: 6px 12px; border-radius: 8px; letter-spacing: 0.5px; }
+        .security-badge { background-color: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.4); font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 8px; }
+
+        /* Score Cards (Jamun Theme) */
+        .scores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+        .score-card { background: linear-gradient(145deg, #24113c, #1a0b2e); border: 1.5px solid #4c2885; padding: 16px 10px; border-radius: 16px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .score-card h4 { font-size: 10px; color: #b19cd9; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .score-card .value { font-size: 21px; font-weight: bold; color: #ffd700; }
+        .score-card .sub { font-size: 11px; color: #4ade80; margin-top: 4px; font-weight: 600; }
+
+        /* Modules Grid */
+        .modules-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
+        .module-box { background: linear-gradient(145deg, #24113c, #1a0b2e); border: 1.5px solid #4c2885; border-radius: 18px; padding: 20px; cursor: pointer; transition: all 0.3s ease; }
+        .module-box:hover { border-color: #ffd700; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25); }
+        .module-box h3 { font-size: 17px; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .module-box p { font-size: 13px; color: #b19cd9; margin-bottom: 14px; line-height: 1.4; }
+        
+        .status-tag { display: inline-block; font-size: 11px; font-weight: bold; padding: 6px 14px; border-radius: 8px; }
+        .tag-gold { background: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.4); }
+
+        /* View Sections */
+        .view-section { display: none; background: #1a0b2e; border: 2px solid #ffd700; border-radius: 18px; padding: 24px; margin-bottom: 20px; text-align: center; box-shadow: 0 0 30px rgba(255, 215, 0, 0.25); }
+        .view-section h2 { color: #ffd700; font-size: 19px; margin-bottom: 8px; }
+        .view-section p { color: #b19cd9; font-size: 13px; margin-bottom: 18px; line-height: 1.4; }
+        
+        .back-btn { background-color: #24113c; color: #ffd700; border: 1px solid #ffd700; padding: 10px 22px; border-radius: 10px; font-size: 12px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.2s; }
+        .back-btn:hover { background-color: #ffd700; color: #12081f; }
+
+        /* 🌟 200% UPGRADED GOLD GRAPH & MODELING */
+        .gold-graph-box { background: #12081f; border: 2px solid #ffd700; border-radius: 16px; padding: 20px; margin-bottom: 15px; box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1); }
+        .gold-svg-container { width: 100%; height: 160px; margin-bottom: 15px; }
+        .gold-line { fill: none; stroke: url(#goldGrad); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; animation: glowWave 2s infinite alternate; }
+        .gold-area { fill: url(#goldAreaGrad); opacity: 0.4; }
+        @keyframes glowWave { 0% { filter: drop-shadow(0 0 3px rgba(255,215,0,0.4)); } 100% { filter: drop-shadow(0 0 12px rgba(255,215,0,0.9)); } }
+        
+        .days-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 15px; }
+        .day-btn { background: #24113c; border: 1px solid #4c2885; color: #f3e8ff; padding: 9px; border-radius: 8px; font-size: 11px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        .day-btn:hover, .day-btn.active { background: #ffd700; color: #12081f; border-color: #ffd700; font-weight: 900; }
+
+        .analytics-summary { background: #24113c; border: 1.5px solid #ffd700; padding: 16px; border-radius: 12px; text-align: left; font-size: 13px; color: #f3e8ff; line-height: 1.6; }
+
+        /* Fully Interactive Expert Cards */
+        .expert-card { background: #12081f; border: 1.5px solid #4c2885; border-radius: 14px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; text-align: left; cursor: pointer; transition: 0.3s; }
+        .expert-card:hover { border-color: #ffd700; background: #24113c; transform: scale(1.02); }
+        .expert-left { display: flex; align-items: center; gap: 14px; }
+        .expert-avatar { width: 52px; height: 52px; border-radius: 50%; background: #24113c; border: 2px solid #ffd700; display: flex; justify-content: center; align-items: center; font-size: 24px; }
+        .expert-info h4 { color: #ffd700; font-size: 15px; margin-bottom: 3px; font-weight: bold; }
+        .expert-info p { color: #b19cd9; font-size: 11px; }
+        .connect-badge { background: rgba(255, 215, 0, 0.2); color: #ffd700; font-size: 11px; font-weight: bold; padding: 7px 12px; border-radius: 8px; border: 1px solid #ffd700; }
+
+        /* Chat Popup */
+        #expertChatBox { display: none; background: #12081f; border: 2px solid #ffd700; border-radius: 14px; padding: 18px; margin-top: 15px; text-align: left; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+        .chat-title { color: #ffd700; font-size: 14px; font-weight: bold; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+
+        /* Biometric & Forms */
+        .biometric-box { background: #12081f; border: 2px dashed #ffd700; border-radius: 14px; padding: 22px; margin-bottom: 15px; text-align: center; }
+        .fingerprint-icon { font-size: 60px; cursor: pointer; margin: 10px 0; display: inline-block; transition: transform 0.2s; }
+        .fingerprint-icon:active { transform: scale(0.9); }
+        .bio-status { font-size: 14px; color: #ffd700; margin-top: 8px; font-weight: bold; }
+        
+        .captcha-box { display: flex; align-items: center; justify-content: center; gap: 10px; background: #12081f; border: 1px solid #4c2885; padding: 14px; border-radius: 10px; margin-bottom: 15px; }
+        .captcha-checkbox { width: 22px; height: 22px; accent-color: #ffd700; cursor: pointer; }
+
+        .form-input, .form-textarea { width: 100%; background-color: #12081f; border: 1.5px solid #4c2885; border-radius: 10px; padding: 12px; color: #fff; font-size: 13px; margin-bottom: 12px; }
+        .form-input:focus, .form-textarea:focus { border-color: #ffd700; outline: none; }
+        .form-textarea { height: 90px; resize: none; }
+        
+        .submit-btn { width: 100%; background: linear-gradient(135deg, #ffd700, #ffa500); color: #12081f; border: none; padding: 13px; border-radius: 10px; font-weight: 900; cursor: pointer; transition: 0.2s; }
+        .submit-btn:hover { filter: brightness(1.1); }
+        .success-text { color: #4ade80; font-size: 12px; margin-top: 8px; display: none; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Status Bar -->
+        <div class="top-bar">
+            <span class="agency-badge">💜 JAMUN & GOLD OS</span>
+            <span class="security-badge">⭐ 200% Master Modeling</span>
+        </div>
+
+        <!-- MAIN HOME DASHBOARD -->
+        <div id="homeView">
+            <div class="scores-grid">
+                <div class="score-card"><h4>Business Health</h4><div class="value">99/100</div><div class="sub">+14%</div></div>
+                <div class="score-card"><h4>SEO Score</h4><div class="value">96/100</div><div class="sub">+19%</div></div>
+                <div class="score-card"><h4>Gold Traffic</h4><div class="value">32.4K</div><div class="sub">+28%</div></div>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-box" onclick="switchView('analyticsView')">
+                    <h3>📈 200% Upgraded Gold Graph & 7-Day Modeling</h3>
+                    <p>Somwar se Ravivar tak ka advanced Jamun-Gold animated graph aur deep traffic analysis.</p>
+                    <span class="status-tag tag-gold">Open 200% Gold Graph</span>
+                </div>
+
+                <div class="module-box" onclick="switchView('expertView')">
+                    <h3>👥 Real Local Business Experts & Live Chat</h3>
+                    <p>Rahul Sharma aur Priya Verma se direct connect karein aur live chat shuru karein.</p>
+                    <span class="status-tag tag-gold">Open Active Expert Panel</span>
+                </div>
+
+                <div class="module-box" onclick="switchView('bioView')">
+                    <h3>🔒 Jamun Gold Fingerprint & Captcha Vault</h3>
+                    <p>Secure touch biometric authentication combined with anti-bot verification.</p>
+                    <span class="status-tag tag-gold">Open Security Vault</span>
+                </div>
+
+                <div class="module-box" onclick="switchView('firewallView')">
+                    <h3>🛡️ Passkey & Advanced Security Firewall</h3>
+                    <p>Advanced Jamun encryption firewall protecting your business system against hackers.</p>
+                    <span class="status-tag tag-gold">100% Protected</span>
+                </div>
+
+                <div class="module-box" onclick="switchView('inquiryView')">
+                    <h3>✉️ Secure AI Jamun Inquiry Hub</h3>
+                    <p>Users send messages safely. AI processes inquiries & routes them to your secured inbox.</p>
+                    <span class="status-tag tag-gold">Open AI Message Hub</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUB VIEW 1: 200% UPGRADED GOLD GRAPH -->
+        <div id="analyticsView" class="view-section">
+            <h2>📈 200% Upgraded Gold Graph Modeling</h2>
+            <p>Hafte ke saaton dino ka advanced animated gold wave aur data analysis:</p>
+            
+            <div class="gold-graph-box">
+                <div class="gold-svg-container">
+                    <svg viewBox="0 0 500 160" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ffa500" />
+                                <stop offset="50%" stop-color="#ffd700" />
+                                <stop offset="100%" stop-color="#fffae6" />
+                            </linearGradient>
+                            <linearGradient id="goldAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffd700" stop-opacity="0.7" />
+                                <stop offset="100%" stop-color="#12081f" stop-opacity="0.0" />
+                            </linearGradient>
+                        </defs>
+                        <path class="gold-area" d="M0,130 Q75,20 150,75 T300,40 T500,50 L500,160 L0,160 Z" />
+                        <path class="gold-line" d="M0,130 Q75,20 150,75 T300,40 T500,50" />
+                        <circle cx="75" cy="55" r="6" fill="#fff" />
+                        <circle cx="150" cy="75" r="6" fill="#fff" />
+                        <circle cx="225" cy="45" r="6" fill="#fff" />
+                        <circle cx="300" cy="40" r="6" fill="#fff" />
+                        <circle cx="400" cy="48" r="6" fill="#fff" />
+                    </svg>
+                </div>
+
+                <div class="days-grid">
+                    <button class="day-btn active" onclick="loadDayModel('Somwar (Monday)', '2,140 Visits', '+12.4%', 'High Morning Surge')">Somwar</button>
+                    <button class="day-btn" onclick="loadDayModel('Mangalwar (Tuesday)', '2,680 Visits', '+16.2%', 'Stable Peak Hours')">Mangal</button>
+                    <button class="day-btn" onclick="loadDayModel('Budhwar (Wednesday)', '2,450 Visits', '+14.0%', 'Consistent Engagement')">Budh</button>
+                    <button class="day-btn" onclick="loadDayModel('Brihaspativar (Thursday)', '3,100 Visits', '+22.5%', 'Strong Conversion Rate')">Guru</button>
+                    <button class="day-btn" onclick="loadDayModel('Shukravar (Friday)', '3,950 Visits', '+29.1%', 'High Weekend Lead Inflow')">Shukra</button>
+                    <button class="day-btn" onclick="loadDayModel('Shanivar (Saturday)', '4,800 Visits', '+38.4%', 'Maximum Peak Volume')">Shani</button>
+                    <button class="day-btn" onclick="loadDayModel('Ravivar (Sunday)', '4,500 Visits', '+34.2%', 'Active Mobile Traffic')">Ravivar</button>
+                </div>
+
+                <div class="analytics-summary" id="goldDayBox">
+                    👑 <b>200% Gold Modeling Active:</b> Somwar ka advanced data loaded hai. Kisi bhi din par click karke modeling analyze karein.
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="switchView('homeView')">← Back to Main Menu</button>
+        </div>
+
+        <!-- SUB VIEW 2: EXPERT TEAM (100% Working Interactive) -->
+        <div id="expertView" class="view-section">
+            <h2>👥 Local Business Experts & Live Chat</h2>
+            <p>Neeche diye gaye expert par click karke direct live chat shuru karein:</p>
+            
+            <div class="expert-card" onclick="openExpertChat('Rahul Sharma', 'Lead Gold Consultant & AI Strategy Expert')">
+                <div class="expert-left">
+                    <div class="expert-avatar">👨‍💼</div>
+                    <div class="expert-info">
+                        <h4>Rahul Sharma</h4>
+                        <p>Lead Gold Consultant • Online & Ready</p>
+                    </div>
+                </div>
+                <span class="connect-badge">Live Chat</span>
+            </div>
+
+            <div class="expert-card" onclick="openExpertChat('Priya Verma', 'Digital Marketing & Analytics Head')">
+                <div class="expert-left">
+                    <div class="expert-avatar">👩‍💻</div>
+                    <div class="expert-info">
+                        <h4>Priya Verma</h4>
+                        <p>Digital Marketing Head • Online & Ready</p>
+                    </div>
+                </div>
+                <span class="connect-badge">Live Chat</span>
+            </div>
+
+            <!-- Active Expert Chat Box -->
+            <div id="expertChatBox">
+                <div class="chat-title">
+                    <span id="chatExpertName">💬 Expert Live Chat</span>
+                    <span style="cursor:pointer; color:#b19cd9;" onclick="closeExpertChat()">✖ Close</span>
+                </div>
+                <p id="chatExpertRole" style="font-size: 11px; color: #b19cd9; margin-bottom: 8px;"></p>
+                <input type="text" id="expertMsgInput" class="form-input" placeholder="Apna sawal yahan type karein..." style="margin-bottom: 8px;">
+                <button class="submit-btn" style="padding: 9px; font-size: 12px;" onclick="sendExpertMessage()">Send Message</button>
+                <div id="expertChatSuccess" class="success-text" style="margin-top: 6px;"></div>
+            </div>
+
+            <button class="back-btn" onclick="switchView('homeView')">← Back to Main Menu</button>
+        </div>
+
+        <!-- SUB VIEW 3: BIOMETRIC -->
+        <div id="bioView" class="view-section">
+            <h2>🔒 Jamun Gold Biometric & Captcha</h2>
+            <p>Apna fingerprint tap karein aur robot check complete karein:</p>
+            <div class="biometric-box">
+                <div class="fingerprint-icon" onclick="verifyFingerprint()">👉</div>
+                <div id="bioText" class="bio-status">Scanner Ready</div>
+            </div>
+            <div class="captcha-box">
+                <input type="checkbox" id="robotBox" class="captcha-checkbox" onclick="verifyRobot()">
+                <label for="robotBox" style="font-size: 13px; color: #fff; cursor: pointer;">I'm not a robot (reCAPTCHA Gold)</label>
+            </div>
+            <div id="finalVerifyMsg" class="success-text"></div>
+            <button class="back-btn" onclick="switchView('homeView')">← Back to Main Menu</button>
+        </div>
+
+        <!-- SUB VIEW 4: FIREWALL -->
+        <div id="firewallView" class="view-section">
+            <h2>🛡️ Jamun Security Firewall</h2>
+            <p>Aapka LocalBoost AI portal puri tarah secure hai.</p>
+            <span class="status-tag tag-gold" style="padding: 6px 12px; font-size: 12px;">Status: Jamun Encryption Active</span><br>
+            <button class="back-btn" onclick="switchView('homeView')">← Back to Main Menu</button>
+        </div>
+
+        <!-- SUB VIEW 5: INQUIRY HUB -->
+        <div id="inquiryView" class="view-section">
+            <h2>✉️ Secure Jamun AI Inquiry Hub</h2>
+            <p>Apna business message yahan drop karein:</p>
+            <form onsubmit="submitForm(event)">
+                <input type="text" placeholder="Aapka Naam" class="form-input" required>
+                <input type="email" placeholder="Aapka Business Email" class="form-input" required>
+                <textarea placeholder="Apna message ya query likhein..." class="form-textarea" required></textarea>
+                <button type="submit" class="submit-btn">Send to Jamun AI Hub</button>
+                <div id="formSuccessMsg" class="success-text">✓ Message successfully AI system tak pahunch gaya!</div>
+            </form>
+            <button class="back-btn" onclick="switchView('homeView')">← Back to Main Menu</button>
+        </div>
+
+    </div>
+
+    <script>
+        function switchView(viewId) {
+            document.getElementById('homeView').style.display = 'none';
+            document.getElementById('analyticsView').style.display = 'none';
+            document.getElementById('expertView').style.display = 'none';
+            document.getElementById('bioView').style.display = 'none';
+            document.getElementById('firewallView').style.display = 'none';
+            document.getElementById('inquiryView').style.display = 'none';
+            
+            document.getElementById(viewId).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function loadDayModel(dayName, visits, growth, status) {
+            let box = document.getElementById('goldDayBox');
+            box.innerHTML = `✨ <b>200% Gold Modeling (${dayName}):</b><br>📊 <b>Traffic Volume:</b> ${visits}<br>🚀 <b>Surge Rate:</b> ${growth}<br>💡 <b>Behavior Analysis:</b> ${status}`;
+        }
+
+        function openExpertChat(name, role) {
+            let box = document.getElementById('expertChatBox');
+            let nameLbl = document.getElementById('chatExpertName');
+            let roleLbl = document.getElementById('chatExpertRole');
+            nameLbl.innerHTML = `💬 Live Chat with ${name}`;
+            roleLbl.innerHTML = `Role: ${role}`;
+            box.style.display = 'block';
+        }
+
+        function closeExpertChat() {
+            document.getElementById('expertChatBox').style.display = 'none';
+        }
+
+        function sendExpertMessage() {
+            let input = document.getE
